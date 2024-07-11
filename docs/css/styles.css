@@ -73,10 +73,13 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #ffc800;
+  /* --bs-link-color: #ffc800; */
+  --bs-link-color: black;
   --bs-link-hover-color: #cca000;
+  /* --bs-link-hover-color: black; */
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff4cc;
+
 }
 
 *,
@@ -3754,6 +3757,7 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
+
 .navbar > .container,
 .navbar > .container-fluid,
 .navbar > .container-sm,
@@ -10853,6 +10857,12 @@ p {
   margin-bottom: 4rem;
 }
 
+.description {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 9rem 0;
@@ -10942,30 +10952,65 @@ p {
     margin-right: 0;
   }
 }
-header.masthead {
+/* header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
   background-image: url("../assets/img/header-bg.jpg");
+  background-image: url("../assets/img/ucsb-header.jpg");
+  opacity: 0.5;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+} */
+
+header.masthead {
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
 }
+
+header.masthead::before {
+  content: "";
+  background-image: url("../assets/img/ucsb-header.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.9;
+  background-color: rgba(0, 0, 0, 1.0); /* Add a dark overlay */
+  mix-blend-mode: multiply; /* Use blending mode for better text contrast */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the background behind the content */
+}
+
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;
   line-height: 1.5rem;
   margin-bottom: 25px;
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
 }
+
 header.masthead .masthead-heading {
   font-size: 3.25rem;
   font-weight: 700;
   line-height: 3.25rem;
   margin-bottom: 2rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
 }
 
 @media (min-width: 768px) {
@@ -11257,7 +11302,7 @@ header.masthead .masthead-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
+  /* background-image: url("../assets/img/map-image.png"); */
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11313,4 +11358,9 @@ section#contact form#contactForm :-ms-input-placeholder {
   text-align: center;
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.no-bullets {
+  list-style-type: none;
+  padding: 0;
 }
